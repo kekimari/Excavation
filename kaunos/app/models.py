@@ -51,3 +51,19 @@ class Find(models.Model):
 
     def __str__(self):
         return self.inventory_number
+
+
+class Finding(models.Model):
+    name = models.CharField(max_length=250)
+    description = models.TextField()
+    latitude = models.DecimalField(max_digits=9, decimal_places=6, default=0)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6, default=0)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6, default=0)
+    width = models.FloatField(default=0)
+    height = models.FloatField(default=0)
+    date = models.DateTimeField()
+
+
+    def __str__(self):
+        return self.name
+
