@@ -16,3 +16,20 @@ class Trench(models.Model):
 
     def __str__(self):
         return self.name
+
+class Building(models.Model):
+    name = models.CharField(max_length=250)
+    editor = models.CharField(max_length=250)
+    latitude = models.DecimalField(max_digits=9, decimal_places=6, default=0)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6, default=0)
+    date = models.DateTimeField()
+    description = models.TextField()
+    width = models.FloatField(default=0)
+    height = models.FloatField(default=0)
+    depth = models.FloatField(default=0)
+
+
+    # TODO: Add support for files
+
+    def __str__(self):
+        return self.name
