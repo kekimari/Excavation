@@ -20,6 +20,7 @@ class Trench(models.Model):
 class Building(models.Model):
     name = models.CharField(max_length=250)
     editor = models.CharField(max_length=250)
+    area = models.ForeignKey(Area, on_delete=models.CASCADE)
     latitude = models.DecimalField(max_digits=9, decimal_places=6, default=0)
     longitude = models.DecimalField(max_digits=9, decimal_places=6, default=0)
     date = models.DateTimeField()

@@ -6,13 +6,13 @@ from app.models import Find
 from app.models import Finding
 
 class AreaAdmin(admin.ModelAdmin):
-    pass
+    search_fields = ['name',]
 
 class TrenchAdmin(admin.ModelAdmin):
     pass
 
 class BuildingAdmin(admin.ModelAdmin):
-    pass
+    autocomplete_fields = ['area',]
 
 class FindAdmin(admin.ModelAdmin):
     pass
