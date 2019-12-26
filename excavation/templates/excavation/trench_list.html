@@ -1,0 +1,45 @@
+{% extends "base_generic.html" %}
+
+{% block banner %}
+<div class="col-md-6">
+          <form>
+              <div class="row">
+                  <div class="col-xs-9 col-md-9">
+                      <div class="form-group">
+                          <input type="text" name="keyword" placeholder="Enter Search Term" class="form-control" />
+                      </div>
+                  </div>
+                  <div class="col-xs-3 col-md-3">
+                      <div class="form-group">
+                          <input type="submit" name="search" value="Search" class="btn btn-success" style="border-radius:0;height:50px;"/>
+                      </div>
+                  </div>
+              </div>
+          </form>
+      </div>
+</div>
+{% endblock %}
+
+{% block content %}
+{% if trench_list %}
+  {% load static %}
+  {% for trench in object_list %}
+  <div class="col-md-6 course d-lg-flex ftco-animate">
+    <div class="img" style="background-image: url({% static 'images/bg_3.jpg' %});"></div>
+    <div class="text bg-light p-4">
+      <h3><a href="{{ trench.get_absolute_url }}">{{ trench.name }}</a></h3>
+      <p class="subheading"><span>{{ trench.latitude }}, {{ trench.longitude }}</span></p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+    </div>
+  </div>
+  {% endfor %}
+{% else %}
+<div class="col-md-6">
+  <p>There are no trenches.</p>
+</div>
+{% endif %}
+{% endblock %}
